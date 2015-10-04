@@ -91,8 +91,7 @@ public class Principal {
         return posiciones;
     }
     
-    public MontaCarga llenarMontaCarga(MontaCarga montaCarga1,
-        MontaCarga montaCarga2, ArrayList<Buque> buques) {
+    public MontaCarga llenarMontaCarga(MontaCarga montaCarga1, MontaCarga montaCarga2, ArrayList<Buque> buques) {
         int[] tiempos = new int[6];
         int[] laycans = new int[6];
         for (int i = 0; i < buques.size(); i++) {
@@ -105,7 +104,7 @@ public class Principal {
         }
         montaCarga1.setTiempoInicio(tiempos);
         int[] comparados = this.compararLaycanTiempo(tiempos, laycans);
-        System.out.println(this.mostar(comparados));
+        System.out.println(this.mostrar(comparados));
         return montaCarga1;
     }
 
@@ -117,7 +116,7 @@ public class Principal {
         return a;
     }
 
-    public String mostar(int[] vector) {
+    public String mostrar(int[] vector) {
         String a = "";
         for (int i = 0; i < vector.length; i++) {
             a += vector[i] + " ";
