@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Principal {
 
     public MontaCarga llenarMontaCarga(MontaCarga montaCarga1,
-            MontaCarga montaCarga2, ArrayList<Buque> buques) {
+        MontaCarga montaCarga2, ArrayList<Buque> buques) {
         int[] tiempos = new int[6];
         int[] laycans = new int[6];
         for (int i = 0; i < buques.size(); i++) {
