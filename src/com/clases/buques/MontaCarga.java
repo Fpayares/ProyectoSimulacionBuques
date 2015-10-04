@@ -43,7 +43,8 @@ public class MontaCarga {
 
     @Override
     public String toString() {
-        return "MontaCarga{" + "tiempoInicio=[ " + this.getTiempoInicio() + "], subBuques=" + subBuques + '}';
+        return "MontaCarga{" + "tiempoInicio=[ " + this.getTiempoInicio() + "],"
+                + " subBuques=" + subBuques + '}';
     }
 
 }
