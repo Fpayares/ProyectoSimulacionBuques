@@ -146,7 +146,9 @@ public class Principal {
         montaCarga1.setTiempoInicio(tiempos);
         int[] comparados = this.compararLaycanTiempo(tiempos, laycans);
         System.out.println(this.mostrar(comparados));
-        return montaCarga1;
+        int suma = this.Penalizacion(comparados);
+        System.out.println(this.valorPenalizacion(suma));
+        return montaCarga1; 
     }
 
     public int[] compararLaycanTiempo(int[] tiempos, int[] laycans) {
@@ -156,6 +158,20 @@ public class Principal {
         }
         return a;
     }
+       public int Penalizacion(int []a){
+        int sum=0;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i]>0) {
+                 sum+=a[i];
+            }
+        }
+        return sum;
+    }
+       
+       public String valorPenalizacion(int a){
+           return "$"+a*2000;
+}
+
 
     public String mostrar(int[] vector) {
         String a = "";
