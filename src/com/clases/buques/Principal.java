@@ -23,10 +23,9 @@ public class Principal {
         }
     }
     
-    public int[] cambiarPosiciones(ArrayList<Buque> buques) {
+    public int[] cambiarPosiciones(double n1, ArrayList<Buque> buques) {
         int pos1, pos2, pos3, pos4, pos5, pos6;
         int[] res = new int[2];
-        double n1 = Math.random();
         if (n1 <= 0.33) {
             do {
                 pos1 = (int) (Math.random() * 6);
@@ -75,8 +74,7 @@ public class Principal {
         return res;
     }
     
-    public int[] escogerPosiciones() {
-        double n2 = Math.random();
+    public int[] escogerPosiciones(double n2) {
         int[] posiciones = new int[2];
         if (n2 <= 0.33) {
             posiciones[0] = 2;
@@ -89,6 +87,49 @@ public class Principal {
             posiciones[1] = 6;
         }
         return posiciones;
+    }
+    
+    public ArrayList<Buque> cambiarPosiciones2(double n3, ArrayList<Buque> buques, int posicion1, int posicion2) {
+        if (n3 <= 0.33) {
+            return buques;
+        } else if (0.33 < n3 && n3 <= 0.66) {
+            ArrayList<BuqueHijo> valores1 = new ArrayList<>();
+            valores1.add(buques.get(posicion1 - 2).getBuque1());
+            valores1.add(buques.get(posicion1 - 1).getBuque1());
+            valores1.add(buques.get(posicion1 - 2).getBuque2());
+            valores1.add(buques.get(posicion1 - 1).getBuque2());
+            valores1.add(buques.get(posicion2 - 2).getBuque1());
+            valores1.add(buques.get(posicion2 - 1).getBuque1());
+            valores1.add(buques.get(posicion2 - 2).getBuque2());
+            valores1.add(buques.get(posicion2 - 1).getBuque2());
+            buques.get(posicion1 - 2).setBuque1(valores1.get(0));
+            buques.get(posicion1 - 2).setBuque2(valores1.get(1));
+            buques.get(posicion1 - 1).setBuque1(valores1.get(2));
+            buques.get(posicion1 - 1).setBuque2(valores1.get(3));
+            buques.get(posicion2 - 2).setBuque1(valores1.get(4));
+            buques.get(posicion2 - 2).setBuque2(valores1.get(5));
+            buques.get(posicion2 - 1).setBuque1(valores1.get(6));
+            buques.get(posicion2 - 1).setBuque2(valores1.get(7));
+        } else if (0.66 < n3 && n3 <= 1) {
+            ArrayList<BuqueHijo> valores1 = new ArrayList<>();
+            valores1.add(buques.get(posicion1 - 2).getBuque1());
+            valores1.add(buques.get(posicion1 - 1).getBuque1());
+            valores1.add(buques.get(posicion1 - 1).getBuque2());
+            valores1.add(buques.get(posicion1 - 2).getBuque2());
+            valores1.add(buques.get(posicion2 - 2).getBuque1());
+            valores1.add(buques.get(posicion2 - 1).getBuque1());
+            valores1.add(buques.get(posicion2 - 1).getBuque2());
+            valores1.add(buques.get(posicion2 - 2).getBuque2());
+            buques.get(posicion1 - 2).setBuque1(valores1.get(0));
+            buques.get(posicion1 - 2).setBuque2(valores1.get(1));
+            buques.get(posicion1 - 1).setBuque1(valores1.get(2));
+            buques.get(posicion1 - 1).setBuque2(valores1.get(3));
+            buques.get(posicion2 - 2).setBuque1(valores1.get(4));
+            buques.get(posicion2 - 2).setBuque2(valores1.get(5));
+            buques.get(posicion2 - 1).setBuque1(valores1.get(6));
+            buques.get(posicion2 - 1).setBuque2(valores1.get(7));
+        }
+        return buques;
     }
     
     public MontaCarga llenarMontaCarga(MontaCarga montaCarga1, MontaCarga montaCarga2, ArrayList<Buque> buques) {
@@ -122,5 +163,9 @@ public class Principal {
             a += vector[i] + " ";
         }
         return a;
+    }
+    
+    public double generarAleatorio() {
+        return Math.random();
     }
 }
