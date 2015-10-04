@@ -46,7 +46,10 @@ public class Test {
         double aleatorio3 = main.generarAleatorio();
         System.out.println("Numero 3 Aleatorio: " + aleatorio3);
         System.out.println(main.cambiarPosiciones2(aleatorio3, buques, posiciones[0], posiciones[1]));
-        System.out.println(main.llenarMontaCarga(montaCarga1, montaCarga2, buques));
+        main.llenarMontaCarga(montaCarga1, montaCarga2, buques);
+        System.out.println("\n");
+        System.out.println(montaCarga1);
+        System.out.println(montaCarga2);
         
     }
 }

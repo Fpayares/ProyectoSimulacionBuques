@@ -6,6 +6,7 @@
 package com.clases.buques;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -21,12 +22,8 @@ public class MontaCarga {
         this.subBuques = subBuques;
     }
 
-    public String getTiempoInicio() {
-        String a = "";
-        for (int i = 0; i < tiempoInicio.length; i++) {
-            a += tiempoInicio[i] + " ";
-        }
-        return a;
+    public int[] getTiempoInicio() {
+        return tiempoInicio;
     }
 
     public void setTiempoInicio(int[] tiempoInicio) {
@@ -43,8 +40,7 @@ public class MontaCarga {
 
     @Override
     public String toString() {
-        return "MontaCarga{" + "tiempoInicio=[ " + this.getTiempoInicio() + "],"
-                + " subBuques=" + subBuques + '}';
+        return Arrays.toString(this.getTiempoInicio()) + " " + subBuques;
     }
 
 }

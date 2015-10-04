@@ -132,23 +132,39 @@ public class Principal {
         return buques;
     }
     
-    public MontaCarga llenarMontaCarga(MontaCarga montaCarga1, MontaCarga montaCarga2, ArrayList<Buque> buques) {
-        int[] tiempos = new int[6];
-        int[] laycans = new int[6];
+    public void llenarMontaCarga(MontaCarga montaCarga1, MontaCarga montaCarga2, ArrayList<Buque> buques) {
+        int[] tiempos1 = new int[6];
+        int[] tiempos2 = new int[6];
+        int[] laycans1 = new int[6];
+        int[] laycans2 = new int[6];
         for (int i = 0; i < buques.size(); i++) {
-            montaCarga1.getSubBuques().add(buques.get(i).getBuque1());
-            if (i > 0) {
-                tiempos[i] = montaCarga1.getSubBuques().get(i - 1).getTiempoDeCarga()
-                        + tiempos[i - 1];
+            if (i == 0) {
+                montaCarga1.getSubBuques().add(buques.get(i).getBuque1());
+                montaCarga2.getSubBuques().add(buques.get(i).getBuque2());                
             }
-            laycans[i] = montaCarga1.getSubBuques().get(i).getLaycan();
+            if (i > 0) {
+                tiempos1[i] = montaCarga1.getSubBuques().get(i - 1).getTiempoDeCarga()
+                        + tiempos1[i - 1];
+                tiempos2[i] = montaCarga2.getSubBuques().get(i - 1).getTiempoDeCarga()
+                        + tiempos2[i - 1];
+                if (tiempos1[i] < tiempos2[i] || tiempos1[i]==tiempos2[i]) {
+                    montaCarga1.getSubBuques().add(buques.get(i).getBuque1());
+                    montaCarga2.getSubBuques().add(buques.get(i).getBuque2());                
+                } else {
+                    montaCarga2.getSubBuques().add(buques.get(i).getBuque1());
+                    montaCarga1.getSubBuques().add(buques.get(i).getBuque2());                
+                }
+            }
+            laycans1[i] = montaCarga1.getSubBuques().get(i).getLaycan();
+            laycans2[i] = montaCarga2.getSubBuques().get(i).getLaycan();
+            montaCarga1.setTiempoInicio(tiempos1);
+            montaCarga2.setTiempoInicio(tiempos2);
         }
-        montaCarga1.setTiempoInicio(tiempos);
+        /*montaCarga1.setTiempoInicio(tiempos);
         int[] comparados = this.compararLaycanTiempo(tiempos, laycans);
         System.out.println(this.mostrar(comparados));
         int suma = this.Penalizacion(comparados);
-        System.out.println(this.valorPenalizacion(suma));
-        return montaCarga1; 
+        System.out.println(this.valorPenalizacion(suma));*/
     }
 
     public int[] compararLaycanTiempo(int[] tiempos, int[] laycans) {
