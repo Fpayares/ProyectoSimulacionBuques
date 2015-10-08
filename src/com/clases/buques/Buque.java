@@ -37,7 +37,7 @@ public class Buque {
 
     @Override
     public String toString() {
-        return buque1 + " " + buque2;
+        return buque1 + " " + buque2+" \n";
     }
 
 }

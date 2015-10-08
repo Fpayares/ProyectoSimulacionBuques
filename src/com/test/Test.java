@@ -38,7 +38,7 @@ public class Test {
         double aleatorio1 = main.generarAleatorio();
         System.out.println("Numero 1 Aleatorio: " + aleatorio1);
         System.out.println(Arrays.toString(main.cambiarPosiciones(aleatorio1, buques)));
-        System.out.println(buques);
+        System.out.println(buques);/*
         double aleatorio2 = main.generarAleatorio();
         System.out.println("Numero 2 Aleatorio: " + aleatorio2);
         int[] posiciones = main.escogerPosiciones(aleatorio2);
@@ -54,6 +54,6 @@ public class Test {
         System.out.println(Arrays.toString(comparacion1));
         System.out.println(Arrays.toString(comparacion2));
         int penalizacion = main.Penalizacion(comparacion1) + main.Penalizacion(comparacion2);
-        System.out.println(main.valorPenalizacion(penalizacion));
+        System.out.println(main.valorPenalizacion(penalizacion));*/
     }
 }

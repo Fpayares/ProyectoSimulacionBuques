@@ -5,7 +5,12 @@
  */
 package com.GUI;
 
+import com.clases.buques.Buque;
+import com.clases.buques.BuqueHijo;
+import com.clases.buques.MontaCarga;
 import com.clases.buques.Principal;
+import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
@@ -15,7 +20,18 @@ import javax.swing.UIManager;
  * @author Fernando
  */
 public class Interfaz extends javax.swing.JFrame {
-    Principal prueba = new Principal();
+    Principal capitan = new Principal();
+    
+    ArrayList<Buque> buques = new ArrayList<>();
+    
+    int vector_tiempos[] = {33, 30, 27, 22, 34, 34};
+    int vector_laycan[] = {24, 24, 144, 72, 144, 24};
+    
+    ArrayList<BuqueHijo> lista1 = new ArrayList<>();
+    ArrayList<BuqueHijo> lista2 = new ArrayList<>();
+    
+    MontaCarga montaCarga1 = new MontaCarga(new int[6], new ArrayList<>());
+    MontaCarga montaCarga2 = new MontaCarga(new int[6], new ArrayList<>());
 
     /**
      * Creates new form Interfaz
@@ -37,7 +53,7 @@ public class Interfaz extends javax.swing.JFrame {
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jTextArea1 = new javax.swing.JTextArea();
+        TextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -54,6 +70,25 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        TextArea2 = new javax.swing.JTextArea();
+        jLabel30 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TextArea3 = new javax.swing.JTextArea();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,9 +96,11 @@ public class Interfaz extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jPanel1.add(jTextArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, -1, 241));
+        TextArea1.setColumns(20);
+        TextArea1.setFont(new java.awt.Font("Nirmala UI", 0, 13)); // NOI18N
+        TextArea1.setRows(5);
+        TextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(TextArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 200, 140));
 
         jButton1.setText("On load Ship");
         jButton1.setName(""); // NOI18N
@@ -72,7 +109,7 @@ public class Interfaz extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(433, 333, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Laicans");
@@ -87,8 +124,8 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel4.setText("21");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
-        jLabel5.setText("12");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+        jLabel5.setText("34");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, -1, -1));
 
         jLabel6.setText("22");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
@@ -122,7 +159,77 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel15.setText("Tiempo de carga");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
 
-        jTabbedPane1.addTab("tab1", jPanel1);
+        jLabel16.setText("12");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+
+        jLabel17.setText("24");
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, -1));
+
+        jLabel18.setText("30");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, -1));
+
+        jLabel19.setText("27");
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, -1, -1));
+
+        jLabel20.setText("22");
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
+
+        jLabel21.setText("34");
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
+
+        jLabel22.setText("33 ");
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, -1, -1));
+
+        jLabel23.setText("24");
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
+
+        jLabel24.setText("24");
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, -1, -1));
+
+        jLabel25.setText("144");
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, -1, -1));
+
+        jLabel26.setText("144");
+        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
+
+        jLabel27.setText("72");
+        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
+
+        jLabel28.setText("Numero aleatorio 1: ");
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
+
+        jLabel29.setText("Generar Buques: ");
+        jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+
+        TextArea2.setColumns(20);
+        TextArea2.setFont(new java.awt.Font("Nirmala UI", 0, 13)); // NOI18N
+        TextArea2.setRows(5);
+        TextArea2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(TextArea2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 210, 30));
+
+        jLabel30.setText("Buques / Primera condición:");
+        jPanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, -1, -1));
+
+        TextArea3.setColumns(20);
+        TextArea3.setRows(5);
+        jScrollPane1.setViewportView(TextArea3);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, 200, 150));
+
+        jTabbedPane1.addTab("Generacion de buques", jPanel1);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 526, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 399, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("tab2", jPanel2);
 
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
@@ -180,8 +287,14 @@ public class Interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       double f = prueba.generarAleatorio();
-       this.jTextArea1.setText(f+"");
+       double aleatorio1 = capitan.generarAleatorio();
+       this.TextArea2.setText(aleatorio1+"\n");
+
+      capitan.inicializarBuques(buques, 6, vector_tiempos, vector_laycan);
+      this.TextArea1.setText(buques.toString());
+      
+      Arrays.toString(capitan.cambiarPosiciones(aleatorio1, buques));
+      this.TextArea3.setText(buques.toString());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -211,6 +324,9 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea TextArea1;
+    private javax.swing.JTextArea TextArea2;
+    private javax.swing.JTextArea TextArea3;
     private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JInternalFrame jInternalFrame1;
@@ -221,8 +337,23 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -230,7 +361,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
