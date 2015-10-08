@@ -38,14 +38,14 @@ public class Test {
         double aleatorio1 = main.generarAleatorio();
         System.out.println("Numero 1 Aleatorio: " + aleatorio1);
         System.out.println(Arrays.toString(main.cambiarPosiciones(aleatorio1, buques)));
-        System.out.println(buques);/*
+        System.out.println(buques);
         double aleatorio2 = main.generarAleatorio();
         System.out.println("Numero 2 Aleatorio: " + aleatorio2);
         int[] posiciones = main.escogerPosiciones(aleatorio2);
         System.out.println(Arrays.toString(posiciones));
         double aleatorio3 = main.generarAleatorio();
         System.out.println("Numero 3 Aleatorio: " + aleatorio3);
-        System.out.println(main.cambiarPosiciones2(aleatorio3, buques, posiciones[0], posiciones[1]));
+        System.out.println(main.cambiarPosiciones2(aleatorio3, buques, posiciones[0], posiciones[1]));/*
         main.llenarMontaCarga(montaCarga1, montaCarga2, buques);
         System.out.println(montaCarga1);
         System.out.println(montaCarga2);

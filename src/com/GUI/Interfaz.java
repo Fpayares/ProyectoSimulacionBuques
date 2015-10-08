@@ -90,6 +90,16 @@ public class Interfaz extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         TextArea1 = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
+        jLabel31 = new javax.swing.JLabel();
+        TextField1 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jLabel32 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TextArea4 = new javax.swing.JTextArea();
+        jLabel33 = new javax.swing.JLabel();
+        TextField2 = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
+        TextField3 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,7 +114,7 @@ public class Interfaz extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        Jpanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, -1, -1));
+        Jpanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Laicans");
@@ -215,20 +225,40 @@ public class Interfaz extends javax.swing.JFrame {
         TextArea1.setRows(5);
         jScrollPane2.setViewportView(TextArea1);
 
-        Jpanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 190, 120));
+        Jpanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 210, 130));
 
         jTabbedPane1.addTab("Generacion de buques", Jpanel1);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 526, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 399, Short.MAX_VALUE)
-        );
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel31.setText("Numero Aleatorio 2:");
+        jPanel2.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        jPanel2.add(TextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 170, -1));
+
+        jButton2.setText("On load ship 2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, -1, -1));
+
+        jLabel32.setText("Buques / Segunda condición :");
+        jPanel2.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+
+        TextArea4.setColumns(20);
+        TextArea4.setRows(5);
+        jScrollPane3.setViewportView(TextArea4);
+
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 210, 130));
+
+        jLabel33.setText("Posiciones :");
+        jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+        jPanel2.add(TextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 170, -1));
+
+        jLabel34.setText("Numero Aleatorio 3:");
+        jPanel2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+        jPanel2.add(TextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 170, -1));
 
         jTabbedPane1.addTab("Condiciones", jPanel2);
 
@@ -298,6 +328,21 @@ public class Interfaz extends javax.swing.JFrame {
       this.TextArea3.setText(buques.toString());
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    double aleatorio2 = capitan.generarAleatorio();
+    this.TextField1.setText(aleatorio2+"\n");
+    
+    int[] posiciones = capitan.escogerPosiciones(aleatorio2);
+    this.TextField2.setText(Arrays.toString(posiciones));
+    
+    double aleatorio3 = capitan.generarAleatorio();
+    this.TextField3.setText(aleatorio3+"\n");
+    
+    ArrayList<Buque> e = capitan.cambiarPosiciones2(aleatorio3, buques, posiciones[0], posiciones[1]);
+    this.TextArea4.setText(e.toString());
+    
+       }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -329,7 +374,12 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextArea TextArea1;
     private javax.swing.JTextArea TextArea2;
     private javax.swing.JTextArea TextArea3;
+    private javax.swing.JTextArea TextArea4;
+    private javax.swing.JTextField TextField1;
+    private javax.swing.JTextField TextField2;
+    private javax.swing.JTextField TextField3;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
@@ -356,6 +406,10 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -365,6 +419,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
