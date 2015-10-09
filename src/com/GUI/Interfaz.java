@@ -49,8 +49,6 @@ public class Interfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
-        jInternalFrame1 = new javax.swing.JInternalFrame();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         Jpanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -89,21 +87,21 @@ public class Interfaz extends javax.swing.JFrame {
         TextArea3 = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         TextArea1 = new javax.swing.JTextArea();
+        jLabel35 = new javax.swing.JLabel();
+        TextField1 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel31 = new javax.swing.JLabel();
-        TextField1 = new javax.swing.JTextField();
+        TextField2 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         TextArea4 = new javax.swing.JTextArea();
         jLabel33 = new javax.swing.JLabel();
-        TextField2 = new javax.swing.JTextField();
-        jLabel34 = new javax.swing.JLabel();
         TextField3 = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
+        TextField4 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jInternalFrame1.setVisible(true);
 
         Jpanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -210,16 +208,16 @@ public class Interfaz extends javax.swing.JFrame {
         TextArea2.setFont(new java.awt.Font("Nirmala UI", 0, 13)); // NOI18N
         TextArea2.setRows(5);
         TextArea2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Jpanel1.add(TextArea2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 210, 30));
+        Jpanel1.add(TextArea2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 200, 30));
 
         jLabel30.setText("Buques / Primera condición:");
-        Jpanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, -1, -1));
+        Jpanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, -1, -1));
 
         TextArea3.setColumns(20);
         TextArea3.setRows(5);
         jScrollPane1.setViewportView(TextArea3);
 
-        Jpanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, 200, 150));
+        Jpanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 200, 150));
 
         TextArea1.setColumns(20);
         TextArea1.setRows(5);
@@ -227,13 +225,17 @@ public class Interfaz extends javax.swing.JFrame {
 
         Jpanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 210, 130));
 
+        jLabel35.setText("Posiciones:");
+        Jpanel1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, -1, -1));
+        Jpanel1.add(TextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 200, -1));
+
         jTabbedPane1.addTab("Generacion de buques", Jpanel1);
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel31.setText("Numero Aleatorio 2:");
         jPanel2.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-        jPanel2.add(TextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 170, -1));
+        jPanel2.add(TextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 170, -1));
 
         jButton2.setText("On load ship 2");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -254,94 +256,61 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel33.setText("Posiciones :");
         jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
-        jPanel2.add(TextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 170, -1));
+        jPanel2.add(TextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 170, -1));
 
         jLabel34.setText("Numero Aleatorio 3:");
         jPanel2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
-        jPanel2.add(TextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 170, -1));
+        jPanel2.add(TextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 170, -1));
 
         jTabbedPane1.addTab("Condiciones", jPanel2);
-
-        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
-        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
-        jInternalFrame1Layout.setHorizontalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
-        );
-        jInternalFrame1Layout.setVerticalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jInternalFrame1)
-                .addContainerGap())
-        );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jInternalFrame1)
-                .addContainerGap())
-        );
-        jDesktopPane1.setLayer(jInternalFrame1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jDesktopPane1)
-                .addContainerGap())
+                .addGap(38, 38, 38)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
+                .addGap(38, 38, 38))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jDesktopPane1)
-                .addContainerGap())
+                .addGap(48, 48, 48)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
+                .addGap(48, 48, 48))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       double aleatorio1 = capitan.generarAleatorio();
-       this.TextArea2.setText(aleatorio1+"\n");
-
-      capitan.inicializarBuques(buques, 6, vector_tiempos, vector_laycan);
-      this.TextArea1.setText(buques.toString());
-      
-      Arrays.toString(capitan.cambiarPosiciones(aleatorio1, buques));
-      this.TextArea3.setText(buques.toString());
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    double aleatorio2 = capitan.generarAleatorio();
-    this.TextField1.setText(aleatorio2+"\n");
-    
-    int[] posiciones = capitan.escogerPosiciones(aleatorio2);
-    this.TextField2.setText(Arrays.toString(posiciones));
-    
-    double aleatorio3 = capitan.generarAleatorio();
-    this.TextField3.setText(aleatorio3+"\n");
-    
-    ArrayList<Buque> e = capitan.cambiarPosiciones2(aleatorio3, buques, posiciones[0], posiciones[1]);
-    this.TextArea4.setText(e.toString());
-    
-       }//GEN-LAST:event_jButton2ActionPerformed
+        double aleatorio2 = capitan.generarAleatorio();
+        this.TextField2.setText(aleatorio2+"\n");
+
+        int[] posiciones = capitan.escogerPosiciones(aleatorio2);
+        this.TextField3.setText(Arrays.toString(posiciones));
+
+        double aleatorio3 = capitan.generarAleatorio();
+        this.TextField4.setText(aleatorio3+"\n");
+
+        ArrayList<Buque> e = capitan.cambiarPosiciones2(aleatorio3, buques, posiciones[0], posiciones[1]);
+        this.TextArea4.setText(e.toString());
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        double aleatorio1 = capitan.generarAleatorio();
+        this.TextArea2.setText(aleatorio1+"\n");
+
+        capitan.inicializarBuques(buques, 6, vector_tiempos, vector_laycan);
+        this.TextArea1.setText(buques.toString());
+
+        Arrays.toString(capitan.cambiarPosiciones(aleatorio1, buques));
+        int[] res = capitan.cambiarPosiciones(aleatorio1, buques);
+        this.TextField1.setText(Arrays.toString(res));
+        this.TextArea3.setText(buques.toString());
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -355,7 +324,9 @@ public class Interfaz extends javax.swing.JFrame {
         try {
             JFrame.setDefaultLookAndFeelDecorated(true);
             JDialog.setDefaultLookAndFeelDecorated(true);
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+           // UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+           // UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -378,10 +349,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField TextField1;
     private javax.swing.JTextField TextField2;
     private javax.swing.JTextField TextField3;
+    private javax.swing.JTextField TextField4;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -410,6 +380,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
