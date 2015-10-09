@@ -11,8 +11,10 @@ import com.clases.buques.MontaCarga;
 import com.clases.buques.Principal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.swing.DefaultListModel;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.ListModel;
 import javax.swing.UIManager;
 
 /**
@@ -33,11 +35,15 @@ public class Interfaz extends javax.swing.JFrame {
     MontaCarga montaCarga1 = new MontaCarga(new int[6], new ArrayList<>());
     MontaCarga montaCarga2 = new MontaCarga(new int[6], new ArrayList<>());
 
+    DefaultListModel modeloLista = new DefaultListModel();
+    DefaultListModel modeloLista2 = new DefaultListModel();
     /**
      * Creates new form Interfaz
      */
     public Interfaz() {
         initComponents();
+        jList1.setModel(modeloLista);
+        jList2.setModel(modeloLista2);
     }
 
     /**
@@ -100,6 +106,12 @@ public class Interfaz extends javax.swing.JFrame {
         TextField3 = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         TextField4 = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
+        jLabel37 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,7 +124,7 @@ public class Interfaz extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        Jpanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, -1, -1));
+        Jpanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Laicans");
@@ -243,7 +255,7 @@ public class Interfaz extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, -1, -1));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, -1, -1));
 
         jLabel32.setText("Buques / Segunda condición :");
         jPanel2.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
@@ -262,6 +274,20 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
         jPanel2.add(TextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 170, -1));
 
+        jLabel36.setText("Montacarga 1:");
+        jPanel2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
+
+        jScrollPane4.setViewportView(jList1);
+
+        jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 90, 100));
+
+        jLabel37.setText("Montacarga 2:");
+        jPanel2.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, -1, -1));
+
+        jScrollPane5.setViewportView(jList2);
+
+        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 90, 100));
+
         jTabbedPane1.addTab("Condiciones", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -269,16 +295,16 @@ public class Interfaz extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
-                .addGap(38, 38, 38))
+                .addGap(24, 24, 24)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
-                .addGap(48, 48, 48))
+                .addGap(29, 29, 29)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
@@ -297,6 +323,18 @@ public class Interfaz extends javax.swing.JFrame {
         ArrayList<Buque> e = capitan.cambiarPosiciones2(aleatorio3, buques, posiciones[0], posiciones[1]);
         this.TextArea4.setText(e.toString());
 
+        capitan.llenarMontaCarga(montaCarga1, montaCarga2, buques);
+                
+        for(int i=0; i< montaCarga1.getSubBuques().size(); i++) {
+            //Añadir cada elemento del ArrayList en el modelo de la lista
+            modeloLista.add(i, montaCarga1.getSubBuques().get(i));
+        }
+        
+        for (int i = 0; i < montaCarga2.getSubBuques().size(); i++) {
+            modeloLista2.add(i,montaCarga2.getSubBuques().get(i));
+        }
+        
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -381,16 +419,22 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList jList1;
+    private javax.swing.JList jList2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
