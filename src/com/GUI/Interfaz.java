@@ -14,7 +14,6 @@ import java.util.Arrays;
 import javax.swing.DefaultListModel;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.ListModel;
 import javax.swing.UIManager;
 
 /**
@@ -57,7 +56,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         Jpanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        OnloadShip = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -95,10 +94,11 @@ public class Interfaz extends javax.swing.JFrame {
         TextArea1 = new javax.swing.JTextArea();
         jLabel35 = new javax.swing.JLabel();
         TextField1 = new javax.swing.JTextField();
+        BotonBorrar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel31 = new javax.swing.JLabel();
         TextField2 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        OnLoadShip2 = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         TextArea4 = new javax.swing.JTextArea();
@@ -117,14 +117,14 @@ public class Interfaz extends javax.swing.JFrame {
 
         Jpanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("On load Ship");
-        jButton1.setName(""); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        OnloadShip.setText("On load Ship");
+        OnloadShip.setName(""); // NOI18N
+        OnloadShip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                OnloadShipActionPerformed(evt);
             }
         });
-        Jpanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, -1, -1));
+        Jpanel1.add(OnloadShip, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Laicans");
@@ -241,6 +241,14 @@ public class Interfaz extends javax.swing.JFrame {
         Jpanel1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, -1, -1));
         Jpanel1.add(TextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 200, -1));
 
+        BotonBorrar.setText("Borrar");
+        BotonBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonBorrarActionPerformed(evt);
+            }
+        });
+        Jpanel1.add(BotonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, -1, -1));
+
         jTabbedPane1.addTab("Generacion de buques", Jpanel1);
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -249,13 +257,13 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel2.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
         jPanel2.add(TextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 170, -1));
 
-        jButton2.setText("On load ship 2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        OnLoadShip2.setText("On load ship 2");
+        OnLoadShip2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                OnLoadShip2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, -1, -1));
+        jPanel2.add(OnLoadShip2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, -1, -1));
 
         jLabel32.setText("Buques / Segunda condición :");
         jPanel2.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
@@ -279,14 +287,14 @@ public class Interfaz extends javax.swing.JFrame {
 
         jScrollPane4.setViewportView(jList1);
 
-        jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 90, 100));
+        jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 100, 110));
 
         jLabel37.setText("Montacarga 2:");
         jPanel2.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, -1, -1));
 
         jScrollPane5.setViewportView(jList2);
 
-        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 90, 100));
+        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 100, 110));
 
         jTabbedPane1.addTab("Condiciones", jPanel2);
 
@@ -310,7 +318,7 @@ public class Interfaz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void OnLoadShip2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OnLoadShip2ActionPerformed
         double aleatorio2 = capitan.generarAleatorio();
         this.TextField2.setText(aleatorio2+"\n");
 
@@ -335,9 +343,9 @@ public class Interfaz extends javax.swing.JFrame {
         }
         
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_OnLoadShip2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void OnloadShipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OnloadShipActionPerformed
         double aleatorio1 = capitan.generarAleatorio();
         this.TextArea2.setText(aleatorio1+"\n");
 
@@ -348,7 +356,12 @@ public class Interfaz extends javax.swing.JFrame {
         int[] res = capitan.cambiarPosiciones(aleatorio1, buques);
         this.TextField1.setText(Arrays.toString(res));
         this.TextArea3.setText(buques.toString());
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_OnloadShipActionPerformed
+
+    private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
+        capitan.setVacios(buques);
+        this.TextArea1.setText(null);
+    }//GEN-LAST:event_BotonBorrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -379,7 +392,10 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonBorrar;
     private javax.swing.JPanel Jpanel1;
+    private javax.swing.JButton OnLoadShip2;
+    private javax.swing.JButton OnloadShip;
     private javax.swing.JTextArea TextArea1;
     private javax.swing.JTextArea TextArea2;
     private javax.swing.JTextArea TextArea3;
@@ -388,8 +404,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField TextField2;
     private javax.swing.JTextField TextField3;
     private javax.swing.JTextField TextField4;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

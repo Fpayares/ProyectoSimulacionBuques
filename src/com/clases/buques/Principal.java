@@ -13,6 +13,14 @@ import java.util.ArrayList;
  */
 public class Principal {
 
+    public void setVacios (ArrayList<Buque> a){
+        if (a.isEmpty()== false) {
+        a.removeAll(a);    
+    }
+  
+     
+    }
+
     public void inicializarBuques(ArrayList<Buque> buques, int numBuques, int vector_tiempos[], int vector_laycan[]) {
         for (int i = 1; i < 7; i++) {
             String[] detalle = {String.valueOf(i) + "1", String.valueOf(i) + "2"};
