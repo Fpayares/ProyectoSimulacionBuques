@@ -326,5 +326,5 @@ public class Principal {
        // System.out.println(this.mostrarSoluciones());
         return mejor;
     }
-    
+      
 }

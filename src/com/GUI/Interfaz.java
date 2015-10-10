@@ -34,7 +34,7 @@ public class Interfaz extends javax.swing.JFrame {
     
     MontaCarga montaCarga1 = capitan.verMontaCarga1();
     MontaCarga montaCarga2 = capitan.verMontaCarga2();
-
+    
     DefaultListModel modeloLista = new DefaultListModel();
     DefaultListModel modeloLista2 = new DefaultListModel();
     /**
@@ -126,6 +126,8 @@ public class Interfaz extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTabbedPane1.setFont(new java.awt.Font("Monotype Corsiva", 0, 14)); // NOI18N
+
         jLabel39.setFont(new java.awt.Font("Monotype Corsiva", 0, 36)); // NOI18N
         jLabel39.setText("Comparación metaheurística ");
 
@@ -153,7 +155,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(jLabel39)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel40)
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Inicio", jPanel1);
@@ -263,12 +265,14 @@ public class Interfaz extends javax.swing.JFrame {
         Jpanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, -1, -1));
 
         TextArea3.setColumns(20);
+        TextArea3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         TextArea3.setRows(5);
         jScrollPane1.setViewportView(TextArea3);
 
         Jpanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 200, 150));
 
         TextArea1.setColumns(20);
+        TextArea1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         TextArea1.setRows(5);
         jScrollPane2.setViewportView(TextArea1);
 
@@ -307,6 +311,7 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel2.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
         TextArea4.setColumns(20);
+        TextArea4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         TextArea4.setRows(5);
         jScrollPane3.setViewportView(TextArea4);
 
@@ -346,6 +351,7 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel3.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         TextArea5.setColumns(20);
+        TextArea5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         TextArea5.setRows(5);
         jScrollPane6.setViewportView(TextArea5);
 
@@ -443,6 +449,7 @@ public class Interfaz extends javax.swing.JFrame {
         this.TextField3.setText(null);
         this.TxAleatorio3.setText(null);
         this.TxPenalizacion.setText(null);
+        this.TextArea5.setText(null);
         this.modeloLista.removeAllElements();
         this.modeloLista2.removeAllElements();
     }//GEN-LAST:event_BotonBorrarActionPerformed
