@@ -97,7 +97,7 @@ public class Interfaz extends javax.swing.JFrame {
         BotonBorrar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel31 = new javax.swing.JLabel();
-        TextField2 = new javax.swing.JTextField();
+        TxAleatorio2 = new javax.swing.JTextField();
         OnLoadShip2 = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -105,13 +105,15 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         TextField3 = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
-        TextField4 = new javax.swing.JTextField();
+        TxAleatorio3 = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
         jLabel37 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList();
+        jLabel38 = new javax.swing.JLabel();
+        TxPenalizacion = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -255,7 +257,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel31.setText("Numero Aleatorio 2:");
         jPanel2.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-        jPanel2.add(TextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 170, -1));
+        jPanel2.add(TxAleatorio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 170, -1));
 
         OnLoadShip2.setText("On load ship 2");
         OnLoadShip2.addActionListener(new java.awt.event.ActionListener() {
@@ -280,7 +282,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel34.setText("Numero Aleatorio 3:");
         jPanel2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
-        jPanel2.add(TextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 170, -1));
+        jPanel2.add(TxAleatorio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 170, -1));
 
         jLabel36.setText("Montacarga 1:");
         jPanel2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
@@ -295,6 +297,10 @@ public class Interfaz extends javax.swing.JFrame {
         jScrollPane5.setViewportView(jList2);
 
         jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 100, 110));
+
+        jLabel38.setText("Penalización:");
+        jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, -1, -1));
+        jPanel2.add(TxPenalizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 160, -1));
 
         jTabbedPane1.addTab("Condiciones", jPanel2);
 
@@ -312,7 +318,7 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
@@ -324,13 +330,13 @@ public class Interfaz extends javax.swing.JFrame {
         this.capitan.vaciarMontacargas(montaCarga1,montaCarga2);
         
         double aleatorio2 = capitan.generarAleatorio();
-        this.TextField2.setText(aleatorio2+"\n");
+        this.TxAleatorio2.setText(aleatorio2+"\n");
 
         int[] posiciones = capitan.escogerPosiciones(aleatorio2);
         this.TextField3.setText(Arrays.toString(posiciones));
 
         double aleatorio3 = capitan.generarAleatorio();
-        this.TextField4.setText(aleatorio3+"\n");
+        this.TxAleatorio3.setText(aleatorio3+"\n");
 
         ArrayList<Buque> e = capitan.cambiarPosiciones2(aleatorio3, buques, posiciones[0], posiciones[1]);
         this.TextArea4.setText(e.toString());
@@ -346,6 +352,12 @@ public class Interfaz extends javax.swing.JFrame {
             modeloLista2.add(i,montaCarga2.getSubBuques().get(i));
         }
         
+        int [] comparacion1 = capitan.compararLaycanTiempoValidada(capitan.verMontaCarga1());
+        int [] comparacion2 = capitan.compararLaycanTiempoValidada(capitan.verMontaCarga2());
+        
+        int penalizacion = capitan.Penalizacion(comparacion1) + capitan.Penalizacion(comparacion2); 
+        int valorPenalizacion = capitan.valorPenalizacion(penalizacion);
+        this.TxPenalizacion.setText("$ "+valorPenalizacion);
         
         
     }//GEN-LAST:event_OnLoadShip2ActionPerformed
@@ -370,9 +382,10 @@ public class Interfaz extends javax.swing.JFrame {
         this.TextArea3.setText(null);
         this.TextArea4.setText(null);
         this.TextField1.setText(null);
-        this.TextField2.setText(null);
+        this.TxAleatorio2.setText(null);
         this.TextField3.setText(null);
-        this.TextField4.setText(null);
+        this.TxAleatorio3.setText(null);
+        this.TxPenalizacion.setText(null);
         this.modeloLista.removeAllElements();
         this.modeloLista2.removeAllElements();
     }//GEN-LAST:event_BotonBorrarActionPerformed
@@ -415,9 +428,10 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextArea TextArea3;
     private javax.swing.JTextArea TextArea4;
     private javax.swing.JTextField TextField1;
-    private javax.swing.JTextField TextField2;
     private javax.swing.JTextField TextField3;
-    private javax.swing.JTextField TextField4;
+    private javax.swing.JTextField TxAleatorio2;
+    private javax.swing.JTextField TxAleatorio3;
+    private javax.swing.JTextField TxPenalizacion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -449,6 +463,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
