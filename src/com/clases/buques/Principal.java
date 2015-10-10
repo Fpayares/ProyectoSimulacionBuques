@@ -7,7 +7,6 @@ package com.clases.buques;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Vector;
 
 /**
  *
@@ -17,7 +16,8 @@ public class Principal {
     
     ArrayList<Solucion> listaSoluciones = new ArrayList<>();
     MontaCarga montaCarga1 = new MontaCarga(new ArrayList<Integer>(), new ArrayList<>());
-    MontaCarga montaCarga2 = new MontaCarga(new ArrayList<Integer>(), new ArrayList<>());       
+    MontaCarga montaCarga2 = new MontaCarga(new ArrayList<Integer>(), new ArrayList<>());  
+    
     
     public MontaCarga verMontaCarga1() {
         return montaCarga1;
@@ -250,11 +250,11 @@ public class Principal {
     }
 
     public void guardarSolucion(ArrayList<Buque> ordenBuques, int penalizacion) {
-        this.listaSoluciones.add(new Solucion((ArrayList<Buque>) ordenBuques.clone(), penalizacion));
+        this.listaSoluciones.add(new Solucion((ArrayList<Buque>) ordenBuques.clone(), penalizacion, this.listaSoluciones.size()+1));
     }
     
-    public String mostrarSoluciones() {
-        return this.listaSoluciones.toString();
+    public ArrayList<Solucion> mostrarSoluciones() {
+        return this.listaSoluciones;
     }
     
     public Integer[] toIntegerArray(int[] arr) {
@@ -263,6 +263,59 @@ public class Principal {
             nuevo[i] = arr[i];
         }
         return nuevo;
+    }
+    
+    public ArrayList<Solucion> procesoSolucion() {
+        ArrayList<Buque> buques = new ArrayList<>();
+        int vector_tiempos[] = {33, 30, 27, 22, 34, 34};
+        int vector_laycan[] = {24, 24, 144, 72, 144, 24};
+        this.inicializarBuques(buques, 6, vector_tiempos, vector_laycan);
+        double aleatorio1 = this.generarAleatorio();
+        this.cambiarPosiciones(aleatorio1, buques);
+        double aleatorio2 = this.generarAleatorio();
+        int[] posiciones = this.escogerPosiciones(aleatorio2);
+        double aleatorio3 = this.generarAleatorio();
+        this.cambiarPosiciones2(aleatorio3, buques, posiciones[0], posiciones[1]);
+        this.llenarMontaCarga(buques);
+        int[] comparacion1 = this.compararLaycanTiempoValidada(this.verMontaCarga1());
+        int[] comparacion2 = this.compararLaycanTiempoValidada(this.verMontaCarga2());
+        int penalizacion = this.Penalizacion(comparacion1) + this.Penalizacion(comparacion2);
+        int valorPenalizacion = this.valorPenalizacion(penalizacion);
+        this.guardarSolucion(buques, valorPenalizacion);
+        return this.mostrarSoluciones();
+    }
+    
+    public Solucion validar(double To, int L, int l, double alpha) {
+        int i = 1;
+        this.procesoSolucion();
+        Solucion inicial = this.listaSoluciones.get(0);
+        Solucion mejor = inicial;
+        double T = To;
+        do {
+            this.procesoSolucion();
+            Solucion nueva = this.listaSoluciones.get(i);
+            double dPen = nueva.getPenalizacion() - inicial.getPenalizacion();
+            if (dPen < 0) {
+                inicial = nueva;
+                if (inicial.getPenalizacion() < mejor.getPenalizacion()) {
+                    mejor = inicial;
+                }
+            } else {
+                double p = Math.exp(-dPen/T);
+                if (p <= Math.random()) {
+                    inicial = nueva;
+                } else {
+                    inicial = inicial;
+                }
+            }
+            l = l + 1;
+            if (l > L) {
+                T = alpha * T;
+            }
+            i++;
+        } while (T > 0.005 * To);
+        System.out.println(this.mostrarSoluciones());
+        return mejor;
     }
     
 }

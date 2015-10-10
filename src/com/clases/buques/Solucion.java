@@ -15,11 +15,16 @@ public class Solucion {
     
     private ArrayList<Buque> arreglo;
     private int penalizacion;
-
-    public Solucion(ArrayList<Buque> arreglo, int penalizacion) {
+    private int indice;
+    
+    public Solucion(ArrayList<Buque> arreglo, int penalizacion, int indice) {
         this.arreglo = arreglo;
         this.penalizacion = penalizacion;
+        this.indice = indice;
     }
+
+    public Solucion() {
+    }    
 
     public ArrayList<Buque> getArreglo() {
         return arreglo;
@@ -39,7 +44,7 @@ public class Solucion {
 
     @Override
     public String toString() {
-        return " Solucion {" + "Ordenamiento: " + arreglo + ", Penalizacion=" + penalizacion + '}';
+        return " Solucion {" + indice +  " Ordenamiento: " + arreglo + ", Penalizacion=" + penalizacion + '}';
     }
     
 }

@@ -21,7 +21,7 @@ public class Test {
     public static void main(String[] args) {
 
         Principal main = new Principal();
-        
+        /*
         ArrayList<Buque> buques = new ArrayList<>();
         
         int vector_tiempos[] = {33, 30, 27, 22, 34, 34};
@@ -47,7 +47,7 @@ public class Test {
         int[] comparacion1 = main.compararLaycanTiempo(main.verMontaCarga1());
         int[] comparacion2 = main.compararLaycanTiempo(main.verMontaCarga2());
         /*System.out.println(Arrays.toString(comparacion1));
-        System.out.println(Arrays.toString(comparacion2));*/
+        System.out.println(Arrays.toString(comparacion2));
         int penalizacion = main.Penalizacion(comparacion1) + main.Penalizacion(comparacion2);
         //System.out.println("$" + main.valorPenalizacion(penalizacion));
         //System.out.println("\nPenalizacion 2");
@@ -82,7 +82,7 @@ public class Test {
         comparacion1 = main.compararLaycanTiempo(main.verMontaCarga1());
         comparacion2 = main.compararLaycanTiempo(main.verMontaCarga2());
         /*System.out.println(Arrays.toString(comparacion1));
-        System.out.println(Arrays.toString(comparacion2));*/
+        System.out.println(Arrays.toString(comparacion2));
         penalizacion = main.Penalizacion(comparacion1) + main.Penalizacion(comparacion2);
         //System.out.println("$" + main.valorPenalizacion(penalizacion));
         //System.out.println("\nPenalizacion 2");
@@ -117,7 +117,7 @@ public class Test {
         comparacion1 = main.compararLaycanTiempo(main.verMontaCarga1());
         comparacion2 = main.compararLaycanTiempo(main.verMontaCarga2());
         /*System.out.println(Arrays.toString(comparacion1));
-        System.out.println(Arrays.toString(comparacion2));*/
+        System.out.println(Arrays.toString(comparacion2));
         penalizacion = main.Penalizacion(comparacion1) + main.Penalizacion(comparacion2);
         //System.out.println("$" + main.valorPenalizacion(penalizacion));
         //System.out.println("\nPenalizacion 2");
@@ -130,6 +130,9 @@ public class Test {
         System.out.println("$" + valorPenalizacion);
         main.guardarSolucion(buques, valorPenalizacion);
         System.out.println(main.mostrarSoluciones());
+        */
+        System.out.println("\n" + main.validar(1000000, 2, 1, 0.9));
+        
         
     }
 }
