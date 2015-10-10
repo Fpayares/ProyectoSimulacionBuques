@@ -361,6 +361,16 @@ public class Interfaz extends javax.swing.JFrame {
     private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
         capitan.setVacios(buques);
         this.TextArea1.setText(null);
+        this.TextArea2.setText(null);
+        this.TextArea3.setText(null);
+        this.TextArea4.setText(null);
+        this.TextField1.setText(null);
+        this.TextField2.setText(null);
+        this.TextField3.setText(null);
+        this.TextField4.setText(null);
+        this.modeloLista.removeAllElements();
+        this.modeloLista2.removeAllElements();
+        this.capitan.vaciarMontacargas(montaCarga1,montaCarga2);
     }//GEN-LAST:event_BotonBorrarActionPerformed
 
     /**
