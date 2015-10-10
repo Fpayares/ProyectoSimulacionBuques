@@ -13,7 +13,7 @@ import java.util.Arrays;
  * @author Fernando
  */
 public class Principal {
-    
+      
     ArrayList<Solucion> listaSoluciones = new ArrayList<>();
     MontaCarga montaCarga1 = new MontaCarga(new ArrayList<Integer>(), new ArrayList<>());
     MontaCarga montaCarga2 = new MontaCarga(new ArrayList<Integer>(), new ArrayList<>());  

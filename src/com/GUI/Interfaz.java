@@ -319,6 +319,10 @@ public class Interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void OnLoadShip2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OnLoadShip2ActionPerformed
+        this.modeloLista.removeAllElements();
+        this.modeloLista2.removeAllElements();
+        this.capitan.vaciarMontacargas(montaCarga1,montaCarga2);
+        
         double aleatorio2 = capitan.generarAleatorio();
         this.TextField2.setText(aleatorio2+"\n");
 
@@ -341,6 +345,7 @@ public class Interfaz extends javax.swing.JFrame {
         for (int i = 0; i < montaCarga2.getSubBuques().size(); i++) {
             modeloLista2.add(i,montaCarga2.getSubBuques().get(i));
         }
+        
         
         
     }//GEN-LAST:event_OnLoadShip2ActionPerformed
@@ -370,7 +375,6 @@ public class Interfaz extends javax.swing.JFrame {
         this.TextField4.setText(null);
         this.modeloLista.removeAllElements();
         this.modeloLista2.removeAllElements();
-        this.capitan.vaciarMontacargas(montaCarga1,montaCarga2);
     }//GEN-LAST:event_BotonBorrarActionPerformed
 
     /**
