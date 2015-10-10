@@ -265,11 +265,4 @@ public class Principal {
         return nuevo;
     }
     
-    public int[] toIntArray(Integer[] arr) {
-        int[] nuevo = new int[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            nuevo[i] = arr[i];
-        }
-        return nuevo;
-    }
 }
