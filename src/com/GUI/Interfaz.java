@@ -89,7 +89,6 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        TextArea2 = new javax.swing.JTextArea();
         jLabel30 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TextArea3 = new javax.swing.JTextArea();
@@ -98,6 +97,7 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         TextField1 = new javax.swing.JTextField();
         BotonBorrar = new javax.swing.JButton();
+        TxAleatorio1 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel31 = new javax.swing.JLabel();
         TxAleatorio2 = new javax.swing.JTextField();
@@ -119,6 +119,8 @@ public class Interfaz extends javax.swing.JFrame {
         TxPenalizacion = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel41 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        TextArea5 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -163,7 +165,7 @@ public class Interfaz extends javax.swing.JFrame {
                 OnloadShipActionPerformed(evt);
             }
         });
-        Jpanel1.add(OnloadShip, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, -1, -1));
+        Jpanel1.add(OnloadShip, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Laicans");
@@ -255,12 +257,6 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel29.setText("Generar Buques: ");
         Jpanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
-        TextArea2.setColumns(20);
-        TextArea2.setFont(new java.awt.Font("Nirmala UI", 0, 13)); // NOI18N
-        TextArea2.setRows(5);
-        TextArea2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Jpanel1.add(TextArea2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 200, 30));
-
         jLabel30.setText("Buques / Primera condición:");
         Jpanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, -1, -1));
 
@@ -274,7 +270,7 @@ public class Interfaz extends javax.swing.JFrame {
         TextArea1.setRows(5);
         jScrollPane2.setViewportView(TextArea1);
 
-        Jpanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 210, 130));
+        Jpanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 210, 140));
 
         jLabel35.setText("Posiciones:");
         Jpanel1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, -1, -1));
@@ -286,7 +282,8 @@ public class Interfaz extends javax.swing.JFrame {
                 BotonBorrarActionPerformed(evt);
             }
         });
-        Jpanel1.add(BotonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, -1, -1));
+        Jpanel1.add(BotonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, -1, -1));
+        Jpanel1.add(TxAleatorio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 200, -1));
 
         jTabbedPane1.addTab("Generacion de buques", Jpanel1);
 
@@ -302,7 +299,7 @@ public class Interfaz extends javax.swing.JFrame {
                 OnLoadShip2ActionPerformed(evt);
             }
         });
-        jPanel2.add(OnLoadShip2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, -1, -1));
+        jPanel2.add(OnLoadShip2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, -1, -1));
 
         jLabel32.setText("Buques / Segunda condición :");
         jPanel2.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
@@ -311,7 +308,7 @@ public class Interfaz extends javax.swing.JFrame {
         TextArea4.setRows(5);
         jScrollPane3.setViewportView(TextArea4);
 
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 210, 130));
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 210, 140));
 
         jLabel33.setText("Posiciones :");
         jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
@@ -326,25 +323,31 @@ public class Interfaz extends javax.swing.JFrame {
 
         jScrollPane4.setViewportView(jList1);
 
-        jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 100, 110));
+        jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 100, 120));
 
         jLabel37.setText("Montacarga 2:");
-        jPanel2.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, -1, -1));
+        jPanel2.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, -1, -1));
 
         jScrollPane5.setViewportView(jList2);
 
-        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 100, 110));
+        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 100, 120));
 
         jLabel38.setText("Penalización:");
-        jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, -1, -1));
-        jPanel2.add(TxPenalizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 160, -1));
+        jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, -1, -1));
+        jPanel2.add(TxPenalizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 160, -1));
 
         jTabbedPane1.addTab("Condiciones", jPanel2);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel41.setText("Secuencia:");
-        jPanel3.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        jPanel3.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+
+        TextArea5.setColumns(20);
+        TextArea5.setRows(5);
+        jScrollPane6.setViewportView(TextArea5);
+
+        jPanel3.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 240, 170));
 
         jTabbedPane1.addTab("Mejor Respuesta", jPanel3);
 
@@ -408,7 +411,7 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void OnloadShipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OnloadShipActionPerformed
         double aleatorio1 = capitan.generarAleatorio();
-        this.TextArea2.setText(aleatorio1+"\n");
+        this.TxAleatorio1.setText(aleatorio1+"\n");
 
         capitan.inicializarBuques(buques, 6, vector_tiempos, vector_laycan);
         this.TextArea1.setText(buques.toString());
@@ -422,7 +425,7 @@ public class Interfaz extends javax.swing.JFrame {
     private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
         capitan.setVacios(buques);
         this.TextArea1.setText(null);
-        this.TextArea2.setText(null);
+        this.TxAleatorio1.setText(null);
         this.TextArea3.setText(null);
         this.TextArea4.setText(null);
         this.TextField1.setText(null);
@@ -447,8 +450,8 @@ public class Interfaz extends javax.swing.JFrame {
             JFrame.setDefaultLookAndFeelDecorated(true);
             JDialog.setDefaultLookAndFeelDecorated(true);
            // UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
-           // UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+           // UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -468,11 +471,12 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton OnLoadShip2;
     private javax.swing.JButton OnloadShip;
     private javax.swing.JTextArea TextArea1;
-    private javax.swing.JTextArea TextArea2;
     private javax.swing.JTextArea TextArea3;
     private javax.swing.JTextArea TextArea4;
+    private javax.swing.JTextArea TextArea5;
     private javax.swing.JTextField TextField1;
     private javax.swing.JTextField TextField3;
+    private javax.swing.JTextField TxAleatorio1;
     private javax.swing.JTextField TxAleatorio2;
     private javax.swing.JTextField TxAleatorio3;
     private javax.swing.JTextField TxPenalizacion;
@@ -527,6 +531,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
