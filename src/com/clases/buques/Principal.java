@@ -250,7 +250,7 @@ public class Principal {
     }
 
     public void guardarSolucion(ArrayList<Buque> ordenBuques, int penalizacion) {
-        this.listaSoluciones.add(new Solucion(ordenBuques, penalizacion));
+        this.listaSoluciones.add(new Solucion((ArrayList<Buque>) ordenBuques.clone(), penalizacion));
     }
     
     public String mostrarSoluciones() {
