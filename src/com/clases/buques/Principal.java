@@ -323,7 +323,7 @@ public class Principal {
             }
             i++;
         } while (T > 0.005 * To);
-        System.out.println(this.mostrarSoluciones());
+       // System.out.println(this.mostrarSoluciones());
         return mejor;
     }
     

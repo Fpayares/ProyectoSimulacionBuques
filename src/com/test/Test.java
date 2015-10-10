@@ -125,7 +125,7 @@ public class Test {
         comparacion2 = main.compararLaycanTiempoValidada(main.verMontaCarga2());
         //System.out.println(Arrays.toString(comparacion1));
         //System.out.println(Arrays.toString(comparacion2));
-        penalizacion = main.Penalizacion(comparacion1) + main.Penalizacion(comparacion2);
+        penalizac ion = main.Penalizacion(comparacion1) + main.Penalizacion(comparacion2);
         valorPenalizacion = main.valorPenalizacion(penalizacion);
         System.out.println("$" + valorPenalizacion);
         main.guardarSolucion(buques, valorPenalizacion);
