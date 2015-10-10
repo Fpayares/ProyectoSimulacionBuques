@@ -44,7 +44,7 @@ public class Solucion {
 
     @Override
     public String toString() {
-        return " Solucion {" + indice +  " Ordenamiento: " + arreglo + ", Penalizacion=" + penalizacion + '}';
+        return " Solucion {" + indice +  "\n Ordenamiento:\n " + arreglo + ",\n Penalizacion=" + penalizacion + '}';
     }
     
 }

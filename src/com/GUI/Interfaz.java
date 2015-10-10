@@ -9,6 +9,7 @@ import com.clases.buques.Buque;
 import com.clases.buques.BuqueHijo;
 import com.clases.buques.MontaCarga;
 import com.clases.buques.Principal;
+import com.clases.buques.Solucion;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.DefaultListModel;
@@ -121,6 +122,7 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel41 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         TextArea5 = new javax.swing.JTextArea();
+        Generar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -347,7 +349,15 @@ public class Interfaz extends javax.swing.JFrame {
         TextArea5.setRows(5);
         jScrollPane6.setViewportView(TextArea5);
 
-        jPanel3.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 240, 170));
+        jPanel3.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 260, 200));
+
+        Generar.setText("Generar");
+        Generar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GenerarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(Generar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, -1));
 
         jTabbedPane1.addTab("Mejor Respuesta", jPanel3);
 
@@ -437,6 +447,11 @@ public class Interfaz extends javax.swing.JFrame {
         this.modeloLista2.removeAllElements();
     }//GEN-LAST:event_BotonBorrarActionPerformed
 
+    private void GenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarActionPerformed
+        Solucion r = capitan.validar(1000000, 2, 1, 0.9);
+        this.TextArea5.setText(r.toString());
+    }//GEN-LAST:event_GenerarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -467,6 +482,7 @@ public class Interfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonBorrar;
+    private javax.swing.JButton Generar;
     private javax.swing.JPanel Jpanel1;
     private javax.swing.JButton OnLoadShip2;
     private javax.swing.JButton OnloadShip;
