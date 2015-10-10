@@ -49,11 +49,19 @@ public class Test {
         main.llenarMontaCarga(montaCarga1, montaCarga2, buques);
         System.out.println(montaCarga1);
         System.out.println(montaCarga2);
+        System.out.println("\nPenalizacion 1");
         int[] comparacion1 = main.compararLaycanTiempo(montaCarga1);
         int[] comparacion2 = main.compararLaycanTiempo(montaCarga2);
         System.out.println(Arrays.toString(comparacion1));
         System.out.println(Arrays.toString(comparacion2));
         int penalizacion = main.Penalizacion(comparacion1) + main.Penalizacion(comparacion2);
+        System.out.println(main.valorPenalizacion(penalizacion));
+        System.out.println("\nPenalizacion 2");
+        comparacion1 = main.compararLaycanTiempoValidada(montaCarga1);
+        comparacion2 = main.compararLaycanTiempoValidada(montaCarga2);
+        System.out.println(Arrays.toString(comparacion1));
+        System.out.println(Arrays.toString(comparacion2));
+        penalizacion = main.Penalizacion(comparacion1) + main.Penalizacion(comparacion2);
         System.out.println(main.valorPenalizacion(penalizacion));
     }
 }

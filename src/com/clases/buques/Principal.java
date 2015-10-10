@@ -6,6 +6,7 @@
 package com.clases.buques;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -188,31 +189,26 @@ public class Principal {
         return a;
     }
     
-        /*
-        public int[] compararLaycanTiempo(MontaCarga montaCarga) {
+    public int[] compararLaycanTiempoValidada(MontaCarga montaCarga) {
         int[] a = new int[6];
         int[] laycans = new int[6];
         int[] tiempos = montaCarga.getTiempoInicio();
         for (int i = 0; i < montaCarga.getSubBuques().size(); i++) {
-            laycans[i] = montaCarga.getSubBuques().get(i).getLaycan();
-        }
-        for (int i = 0; i < montaCarga.getSubBuques().size(); i++) {
-            BuqueHijo base1 = montaCarga.getSubBuques().get(i);
-            BuqueHijo base2 = montaCarga.getSubBuques().get(i);
-            int valor1 = Integer.parseInt(montaCarga.getSubBuques().get(i).getValor());
-            int valor2 = Integer.parseInt(montaCarga.getSubBuques().get(i).getValor())+1;
-            System.out.println(valor1 + " " + valor2);
-            base1.setValor(String.valueOf(valor1));
-            base2.setValor(String.valueOf(valor2));
-            System.out.println(base1);
-            System.out.println(base2 + "\n");
+            if (montaCarga.getSubBuques().get(i).getValor().endsWith("1")) {
+                laycans[i] = montaCarga.getSubBuques().get(i).getLaycan();
+            } else {
+                laycans[i] = 0;
+            }
         }
         for (int i = 0; i < tiempos.length; i++) {
-            a[i] = tiempos[i] - laycans[i];
+            if (laycans[i] == 0) {
+                a[i] = 0;
+            } else {
+                a[i] = tiempos[i] - laycans[i];
+            }
         }
         return a;
     }
-    */
     
     public int Penalizacion(int[] a) {
         int sum = 0;
