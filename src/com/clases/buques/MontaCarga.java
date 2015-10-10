@@ -14,19 +14,19 @@ import java.util.Arrays;
  */
 public class MontaCarga {
 
-    private int[] tiempoInicio;
+    private ArrayList<Integer> tiempoInicio;
     private ArrayList<BuqueHijo> subBuques;
 
-    public MontaCarga(int[] tiempoInicio, ArrayList<BuqueHijo> subBuques) {
+    public MontaCarga(ArrayList<Integer> tiempoInicio, ArrayList<BuqueHijo> subBuques) {
         this.tiempoInicio = tiempoInicio;
         this.subBuques = subBuques;
     }
 
-    public int[] getTiempoInicio() {
+    public ArrayList<Integer> getTiempoInicio() {
         return tiempoInicio;
     }
 
-    public void setTiempoInicio(int[] tiempoInicio) {
+    public void setTiempoInicio(ArrayList<Integer> tiempoInicio) {
         this.tiempoInicio = tiempoInicio;
     }
 
@@ -40,7 +40,9 @@ public class MontaCarga {
 
     @Override
     public String toString() {
-        return Arrays.toString(this.getTiempoInicio()) + " " + subBuques;
+        return Arrays.toString(this.getTiempoInicio().toArray()) + " " + subBuques;
     }
+    
+    
 
 }

@@ -7,34 +7,45 @@ package com.clases.buques;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Vector;
 
 /**
  *
  * @author Fernando
  */
 public class Principal {
-
-    public void setVacios (ArrayList<Buque> a){
-        if (a.isEmpty()== false) {
-        a.removeAll(a);    
+    
+    ArrayList<Solucion> listaSoluciones = new ArrayList<>();
+    MontaCarga montaCarga1 = new MontaCarga(new ArrayList<Integer>(), new ArrayList<>());
+    MontaCarga montaCarga2 = new MontaCarga(new ArrayList<Integer>(), new ArrayList<>());       
+    
+    public MontaCarga verMontaCarga1() {
+        return montaCarga1;
     }
-  
-     
+    
+    public MontaCarga verMontaCarga2() {
+        return montaCarga2;
+    }
+    
+    public void setVacios(ArrayList<Buque> a) {
+        if (a.isEmpty() == false) {
+            a.removeAll(a);
+        }
     }
 
     public void inicializarBuques(ArrayList<Buque> buques, int numBuques, int vector_tiempos[], int vector_laycan[]) {
+        buques.clear();
         for (int i = 1; i < 7; i++) {
             String[] detalle = {String.valueOf(i) + "1", String.valueOf(i) + "2"};
             BuqueHijo buqueHijo1 = new BuqueHijo(detalle[0], vector_tiempos[i - 1], vector_laycan[i - 1]);
             BuqueHijo buqueHijo2 = new BuqueHijo(detalle[1], vector_tiempos[i - 1], vector_laycan[i - 1]);
-            //System.out.println(buqueHijo1 + " " + buqueHijo2);
             buques.add(new Buque(buqueHijo1, buqueHijo2));
         }
     }
 
     public int[] cambiarPosiciones(double n1, ArrayList<Buque> buques) {
         int pos1, pos2, pos3, pos4, pos5, pos6;
-        int[] res = new int[2];
+        int[] res = new int[4];
         if (n1 <= 0.33) {
             do {
                 pos1 = (int) (Math.random() * 6);
@@ -61,6 +72,7 @@ public class Principal {
             buques.set(pos3, val1);
             res[0] = (pos1 + 1);
             res[1] = (pos2 + 1);
+            res[2] = (pos3 + 1);
         } else if (0.66 < n1 && n1 <= 1) {
             do {
                 pos1 = (int) (Math.random() * 6);
@@ -79,6 +91,8 @@ public class Principal {
             buques.set(pos4, val3);
             res[0] = (pos1 + 1);
             res[1] = (pos2 + 1);
+            res[2] = (pos3 + 1);
+            res[3] = (pos4 + 1);
         }
         return res;
     }
@@ -141,7 +155,11 @@ public class Principal {
         return buques;
     }
 
-    public void llenarMontaCarga(MontaCarga montaCarga1, MontaCarga montaCarga2, ArrayList<Buque> buques) {
+    public void llenarMontaCarga(ArrayList<Buque> buques) {
+        montaCarga1.getSubBuques().clear();
+        montaCarga1.getTiempoInicio().clear();
+        montaCarga2.getSubBuques().clear();
+        montaCarga2.getTiempoInicio().clear();
         int[] tiempos1 = new int[6];
         int[] tiempos2 = new int[6];
         int[] laycans1 = new int[6];
@@ -166,33 +184,28 @@ public class Principal {
             }
             laycans1[i] = montaCarga1.getSubBuques().get(i).getLaycan();
             laycans2[i] = montaCarga2.getSubBuques().get(i).getLaycan();
-            montaCarga1.setTiempoInicio(tiempos1);
-            montaCarga2.setTiempoInicio(tiempos2);
+            montaCarga1.setTiempoInicio(new ArrayList<Integer>(Arrays.asList(this.toIntegerArray(tiempos1))));
+            montaCarga2.setTiempoInicio(new ArrayList<Integer>(Arrays.asList(this.toIntegerArray(tiempos2))));
         }
-        /*montaCarga1.setTiempoInicio(tiempos);
-         int[] comparados = this.compararLaycanTiempo(tiempos, laycans);
-         System.out.println(this.mostrar(comparados));
-         int suma = this.Penalizacion(comparados);
-         System.out.println(this.valorPenalizacion(suma));*/
     }
 
     public int[] compararLaycanTiempo(MontaCarga montaCarga) {
         int[] a = new int[6];
         int[] laycans = new int[6];
-        int[] tiempos = montaCarga.getTiempoInicio();
+        ArrayList<Integer> tiempos = montaCarga.getTiempoInicio();
         for (int i = 0; i < montaCarga.getSubBuques().size(); i++) {
             laycans[i] = montaCarga.getSubBuques().get(i).getLaycan();
         }
-        for (int i = 0; i < tiempos.length; i++) {
-            a[i] = tiempos[i] - laycans[i];
+        for (int i = 0; i < tiempos.size(); i++) {
+            a[i] = tiempos.get(i) - laycans[i];
         }
         return a;
     }
-    
+
     public int[] compararLaycanTiempoValidada(MontaCarga montaCarga) {
         int[] a = new int[6];
         int[] laycans = new int[6];
-        int[] tiempos = montaCarga.getTiempoInicio();
+        ArrayList<Integer> tiempos = montaCarga.getTiempoInicio();
         for (int i = 0; i < montaCarga.getSubBuques().size(); i++) {
             if (montaCarga.getSubBuques().get(i).getValor().endsWith("1")) {
                 laycans[i] = montaCarga.getSubBuques().get(i).getLaycan();
@@ -200,16 +213,16 @@ public class Principal {
                 laycans[i] = 0;
             }
         }
-        for (int i = 0; i < tiempos.length; i++) {
+        for (int i = 0; i < tiempos.size(); i++) {
             if (laycans[i] == 0) {
                 a[i] = 0;
             } else {
-                a[i] = tiempos[i] - laycans[i];
+                a[i] = tiempos.get(i) - laycans[i];
             }
         }
         return a;
     }
-    
+
     public int Penalizacion(int[] a) {
         int sum = 0;
         for (int i = 0; i < a.length; i++) {
@@ -220,8 +233,8 @@ public class Principal {
         return sum;
     }
 
-    public String valorPenalizacion(int a) {
-        return "$" + a * 2000;
+    public int valorPenalizacion(int a) {
+        return a * 2000;
     }
 
     public String mostrar(int[] vector) {
@@ -234,5 +247,29 @@ public class Principal {
 
     public double generarAleatorio() {
         return Math.random();
+    }
+
+    public void guardarSolucion(ArrayList<Buque> ordenBuques, int penalizacion) {
+        this.listaSoluciones.add(new Solucion(ordenBuques, penalizacion));
+    }
+    
+    public String mostrarSoluciones() {
+        return this.listaSoluciones.toString();
+    }
+    
+    public Integer[] toIntegerArray(int[] arr) {
+        Integer[] nuevo = new Integer[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            nuevo[i] = arr[i];
+        }
+        return nuevo;
+    }
+    
+    public int[] toIntArray(Integer[] arr) {
+        int[] nuevo = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            nuevo[i] = arr[i];
+        }
+        return nuevo;
     }
 }

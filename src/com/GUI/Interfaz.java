@@ -31,8 +31,8 @@ public class Interfaz extends javax.swing.JFrame {
     ArrayList<BuqueHijo> lista1 = new ArrayList<>();
     ArrayList<BuqueHijo> lista2 = new ArrayList<>();
     
-    MontaCarga montaCarga1 = new MontaCarga(new int[6], new ArrayList<>());
-    MontaCarga montaCarga2 = new MontaCarga(new int[6], new ArrayList<>());
+    MontaCarga montaCarga1 = capitan.verMontaCarga1();
+    MontaCarga montaCarga2 = capitan.verMontaCarga2();
 
     DefaultListModel modeloLista = new DefaultListModel();
     DefaultListModel modeloLista2 = new DefaultListModel();
@@ -331,7 +331,7 @@ public class Interfaz extends javax.swing.JFrame {
         ArrayList<Buque> e = capitan.cambiarPosiciones2(aleatorio3, buques, posiciones[0], posiciones[1]);
         this.TextArea4.setText(e.toString());
 
-        capitan.llenarMontaCarga(montaCarga1, montaCarga2, buques);
+        capitan.llenarMontaCarga(buques);
                 
         for(int i=0; i< montaCarga1.getSubBuques().size(); i++) {
             //Añadir cada elemento del ArrayList en el modelo de la lista
