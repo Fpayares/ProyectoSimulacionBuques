@@ -32,6 +32,15 @@ public class Principal {
             a.removeAll(a);
         }
     }
+    
+     public void vaciarMontacargas (MontaCarga m1,MontaCarga m2){
+        m1.getSubBuques().clear();
+        m1.setTiempoInicio(new ArrayList<>());
+        m2.getSubBuques().clear();
+        m2.setTiempoInicio(new ArrayList<>());
+    }
+    
+    
 
     public void inicializarBuques(ArrayList<Buque> buques, int numBuques, int vector_tiempos[], int vector_laycan[]) {
         buques.clear();
