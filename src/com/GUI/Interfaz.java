@@ -118,6 +118,7 @@ public class Interfaz extends javax.swing.JFrame {
         jList2 = new javax.swing.JList();
         jLabel38 = new javax.swing.JLabel();
         TxPenalizacion = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel41 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -162,7 +163,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         Jpanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        OnloadShip.setText("On load Ship");
+        OnloadShip.setText("Cargar Buques");
         OnloadShip.setName(""); // NOI18N
         OnloadShip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -299,7 +300,7 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel2.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
         jPanel2.add(TxAleatorio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 170, -1));
 
-        OnLoadShip2.setText("On load ship 2");
+        OnLoadShip2.setText("Cargar Buques");
         OnLoadShip2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OnLoadShip2ActionPerformed(evt);
@@ -342,6 +343,14 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel38.setText("Penalización:");
         jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, -1, -1));
         jPanel2.add(TxPenalizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 160, -1));
+
+        jButton1.setText("Borrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, -1, -1));
 
         jTabbedPane1.addTab("Condiciones", jPanel2);
 
@@ -459,6 +468,22 @@ public class Interfaz extends javax.swing.JFrame {
         this.TextArea5.setText(r.toString());
     }//GEN-LAST:event_GenerarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         capitan.setVacios(buques);
+        this.TextArea1.setText(null);
+        this.TxAleatorio1.setText(null);
+        this.TextArea3.setText(null);
+        this.TextArea4.setText(null);
+        this.TextField1.setText(null);
+        this.TxAleatorio2.setText(null);
+        this.TextField3.setText(null);
+        this.TxAleatorio3.setText(null);
+        this.TxPenalizacion.setText(null);
+        this.TextArea5.setText(null);
+        this.modeloLista.removeAllElements();
+        this.modeloLista2.removeAllElements();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -503,6 +528,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField TxAleatorio2;
     private javax.swing.JTextField TxAleatorio3;
     private javax.swing.JTextField TxPenalizacion;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
