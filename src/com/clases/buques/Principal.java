@@ -295,6 +295,7 @@ public class Principal {
     }
     
     public Solucion validar(double To, int L, int l, double alpha) {
+        this.listaSoluciones.clear();
         int i = 1;
         this.procesoSolucion();
         Solucion inicial = this.listaSoluciones.get(0);
